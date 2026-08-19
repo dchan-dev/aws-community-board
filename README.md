@@ -2,6 +2,7 @@
 
 AWS Community Day attendees often use different messaging platforms, while international speakers may not want another app, account, or request for personal contact details. Community Board provides a simple browser-based event room for sharing updates, locations, meeting details, and images. Powered by AWS Lambda and Amazon S3, the mobile-first MVP is practical and inexpensive for short-term event communication.
 
+![index.png](index.png)
 ![system_design.jpg](system_design.jpg)
 ![pitching.jpg](pitching.jpg)
 ![journey_flow.jpg](journey_flow.jpg)
