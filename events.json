@@ -1,0 +1,29 @@
+{
+  "updatedAt": "2026-08-19T00:00:00.000Z",
+  "events": [
+    {
+      "id": "2026080102",
+      "name": "AWS Builder Center",
+      "startDate": "2026-08-01",
+      "endDate": "2049-08-01",
+      "location": "Virtual",
+      "feed": "event_2026080102.json"
+    },
+    {
+      "id": "2026082124",
+      "name": "AWS Community Day Manila 2026",
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-24",
+      "location": "Manila",
+      "feed": "event_2026082124.json"
+    },
+    {
+      "id": "2026082123",
+      "name": "China Kawn Root of Family",
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-23",
+      "location": "China",
+      "feed": "event_2026082123.json"
+    }
+  ]
+}

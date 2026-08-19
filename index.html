@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AWS Community Board — conference speaker and participant chat</title>
+    <meta
+      name="description"
+      content="Browser chat for conference speakers and participants. No app install. Join AWS Community Day Manila, AWS Builder Center, and other live rooms."
+    />
+    <meta
+      name="keywords"
+      content="AWS Community Board, AWS User Group, conference chat, AWS Community Day Manila, AWS Builder Center, speaker chat, community chatroom"
+    />
+    <meta name="author" content="AWS User Group" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#5D26FF" />
+    <meta name="color-scheme" content="light" />
+    <link rel="canonical" href="https://aws-user-group.com/community-board/index.html" />
+
+    <!-- Open Graph — WhatsApp, Facebook, LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AWS Community Board" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://aws-user-group.com/community-board/index.html" />
+    <meta
+      property="og:title"
+      content="AWS Community Board — conference speaker and participant chat"
+    />
+    <meta
+      property="og:description"
+      content="Browser chat for speakers and participants. No WhatsApp, no Facebook, no app download — pick an event and talk."
+    />
+    <meta
+      property="og:image"
+      content="https://aws-user-group.com/demo/seo_banner.jpg"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2848" />
+    <meta property="og:image:height" content="1504" />
+    <meta
+      property="og:image:alt"
+      content="AWS Community Board for AWS builders and conference speakers"
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AWS Community Board — conference speaker and participant chat"
+    />
+    <meta
+      name="twitter:description"
+      content="Browser chat for speakers and participants. No WhatsApp, no Facebook, no app download — pick an event and talk."
+    />
+    <meta
+      name="twitter:image"
+      content="https://aws-user-group.com/demo/seo_banner.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="AWS Community Board for AWS builders and conference speakers"
+    />
+    <style>
+      :root {
+        --pink: #ff5bff;
+        --cyan: #6ce1ff;
+        --indigo: #5d26ff;
+        --lavender: #e2dbff;
+        --black: #111111;
+        --charcoal: #2a2a2a;
+        --ink: #0a0a0a;
+        --mute: #6b6b6b;
+        --line: #d8d8d8;
+        --paper: #fafafa;
+        --white: #ffffff;
+        --grad: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 48%, var(--pink) 100%);
+        --font-display: Impact, "Arial Black", "Helvetica Neue", sans-serif;
+        --font-sans: "Segoe UI", system-ui, sans-serif;
+        --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+        --pad: clamp(1rem, 4vw, 2.25rem);
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        color: var(--ink);
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px),
+          var(--paper);
+        background-size: 48px 48px, 48px 48px, auto;
+        background-attachment: fixed;
+        font-family: var(--font-mono);
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .shell {
+        width: min(100% - (var(--pad) * 2), 920px);
+        margin-inline: auto;
+        padding: calc(var(--safe-top) + 1.25rem) 0 calc(var(--safe-bottom) + 3rem);
+      }
+
+      .signal {
+        height: 6px;
+        margin: 0 0 1.25rem;
+        background: var(--grad);
+        border: 2px solid var(--black);
+      }
+
+      .kicker {
+        margin: 0 0 0.7rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--mute);
+      }
+
+      h1 {
+        margin: 0 0 0.7rem;
+        font-family: var(--font-display);
+        font-size: clamp(2.1rem, 9vw, 3.6rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      h1 span {
+        background: var(--grad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .lede {
+        margin: 0 0 1.15rem;
+        max-width: 38rem;
+        color: var(--mute);
+        font-size: 0.92rem;
+      }
+
+      .token-box {
+        display: grid;
+        gap: 0.4rem;
+        margin: 0 0 1.5rem;
+        padding: 0.9rem 1rem 1rem;
+        border: 2px solid var(--black);
+        background: var(--white);
+        box-shadow: 4px 4px 0 rgba(108, 225, 255, 0.45);
+      }
+
+      .token-box::before {
+        content: "";
+        display: block;
+        height: 4px;
+        margin: -0.9rem -1rem 0.7rem;
+        background: var(--grad);
+      }
+
+      .token-box label {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--mute);
+      }
+
+      .token-box input {
+        width: 100%;
+        border: 2px solid var(--black);
+        background: var(--paper);
+        color: var(--ink);
+        padding: 0.6rem 0.7rem;
+        font-family: inherit;
+        font-size: 16px;
+      }
+
+      .token-box input:focus-visible {
+        outline: 3px solid var(--cyan);
+        outline-offset: 2px;
+      }
+
+      .status {
+        display: none;
+        margin: 0 0 1rem;
+        padding: 0.85rem 1rem;
+        border: 2px solid var(--black);
+        background: var(--white);
+        box-shadow: 4px 4px 0 var(--pink);
+        font-size: 0.82rem;
+      }
+
+      .status.is-on {
+        display: block;
+      }
+
+      .status.is-error {
+        box-shadow: 4px 4px 0 var(--indigo);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      @media (min-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        min-height: 11.5rem;
+        padding: 1.15rem 1.15rem 1.2rem;
+        border: 2px solid var(--black);
+        background: var(--white);
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 5px 5px 0 rgba(93, 38, 255, 0.28);
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+      }
+
+      .card::before {
+        content: "";
+        display: block;
+        height: 4px;
+        margin: -1.15rem -1.15rem 0.35rem;
+        background: var(--grad);
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 rgba(255, 91, 255, 0.4);
+        outline: none;
+      }
+
+      .card:focus-visible {
+        outline: 3px solid var(--cyan);
+        outline-offset: 3px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .chip {
+        padding: 0.18rem 0.45rem;
+        border: 2px solid var(--black);
+        background: var(--lavender);
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .chip.id {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .card h2 {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .dates {
+        margin: 0;
+        color: var(--mute);
+        font-size: 0.82rem;
+      }
+
+      .cta {
+        margin-top: auto;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--indigo);
+        width: fit-content;
+      }
+
+      .foot {
+        margin-top: 1.75rem;
+        color: var(--mute);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="signal" aria-hidden="true"></div>
+      <p class="kicker">AWS builder signal // live rooms</p>
+      <h1>AWS Community <span>Board</span></h1>
+      <p class="lede">
+        Browser chat for speakers and participants. No WhatsApp, no Facebook, no app download — enter the access token, then pick an event.
+      </p>
+      <div class="token-box">
+        <label for="token">Access token</label>
+        <input id="token" type="text" maxlength="80" value="aws" placeholder="Enter access token to join a room" autocomplete="off" />
+      </div>
+      <p id="status" class="status" role="status"></p>
+      <section id="events" class="grid" aria-live="polite"></section>
+      <p class="foot">Mobile first · token-gated rooms · refresh every 60s</p>
+    </main>
+    <script>
+      (function () {
+        const EVENTS_URL = "https://aws-user-group.com/community-board/events.json";
+        const LOCAL_URL = "./events.json";
+        const statusEl = document.getElementById("status");
+        const listEl = document.getElementById("events");
+        const tokenInput = document.getElementById("token");
+
+        function showStatus(text, isError) {
+          statusEl.textContent = text;
+          statusEl.classList.add("is-on");
+          statusEl.classList.toggle("is-error", Boolean(isError));
+        }
+
+        function hideStatus() {
+          statusEl.classList.remove("is-on", "is-error");
+          statusEl.textContent = "";
+        }
+
+        function escapeHtml(value) {
+          return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        function formatDates(startDate, endDate) {
+          return startDate && endDate ? startDate + " to " + endDate : "Dates TBA";
+        }
+
+        function renderEvents(events) {
+          if (!Array.isArray(events) || events.length === 0) {
+            showStatus("No events are listed yet.", true);
+            listEl.innerHTML = "";
+            return;
+          }
+
+          listEl.innerHTML = events
+            .map(function (event) {
+              const id = escapeHtml(event.id || "");
+              const name = escapeHtml(event.name || "Untitled event");
+              const location = escapeHtml(event.location || "On site");
+              const dates = escapeHtml(formatDates(event.startDate, event.endDate));
+              return (
+                '<a class="card" href="./chat.html?id=' +
+                encodeURIComponent(event.id || "") +
+                '">' +
+                '<div class="meta">' +
+                '<span class="chip id">ID ' +
+                id +
+                "</span>" +
+                '<span class="chip">' +
+                location +
+                "</span>" +
+                "</div>" +
+                "<h2>" +
+                name +
+                "</h2>" +
+                '<p class="dates">' +
+                dates +
+                "</p>" +
+                '<span class="cta">Enter room →</span>' +
+                "</a>"
+              );
+            })
+            .join("");
+        }
+
+        function readEvents(payload) {
+          if (Array.isArray(payload)) {
+            return payload;
+          }
+          if (payload && Array.isArray(payload.events)) {
+            return payload.events;
+          }
+          return [];
+        }
+
+        function fetchJson(url) {
+          return fetch(url, { cache: "no-store" }).then(function (response) {
+            if (!response.ok) {
+              throw new Error("HTTP " + response.status);
+            }
+            return response.json();
+          });
+        }
+
+        showStatus("Loading event signal…");
+
+        fetchJson(EVENTS_URL)
+          .catch(function () {
+            return fetchJson(LOCAL_URL);
+          })
+          .then(function (payload) {
+            hideStatus();
+            renderEvents(readEvents(payload));
+          })
+          .catch(function () {
+            showStatus("Could not load events.json. Check the S3 path and try again.", true);
+          });
+
+        listEl.addEventListener("click", function (event) {
+          const card = event.target.closest("a.card");
+          if (!card) {
+            return;
+          }
+          event.preventDefault();
+          const token = tokenInput.value.trim();
+          if (!token) {
+            showStatus("Enter the access token before joining a room.", true);
+            tokenInput.focus();
+            return;
+          }
+          const url = new URL(card.getAttribute("href"), window.location.href);
+          url.searchParams.set("token", token);
+          window.location.assign(url.pathname + url.search);
+        });
+      })();
+    </script>
+  </body>
+</html>
