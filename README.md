@@ -10,6 +10,7 @@ AWS Community Day attendees often use different messaging platforms, while inter
 ---
 
 **Try the application:** [Community Board](https://aws-user-group.com/community-board/index.html)  
+
 **Github:** [Repo link](https://github.com/dchan-dev/aws-community-board)  
 
 ---
