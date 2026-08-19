@@ -295,4 +295,4 @@ Most importantly, the project reminded me that successful full-stack application
 
 **Application:** [https://aws-user-group.com/community-board/index.html](https://aws-user-group.com/community-board/index.html)
 
-**Public repository:** Replace this line with your public GitHub repository URL before submitting if the application link is not used as the qualifying link.
+**Public repository:** [https://github.com/dchan-dev/aws-community-board](https://github.com/dchan-dev/aws-community-board)
